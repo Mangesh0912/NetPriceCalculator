@@ -3,6 +3,7 @@ package com.calculator.repository;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 @Repository
@@ -25,6 +26,6 @@ public class TaxRateProviderRepositoryImpl implements TaxRateProviderRepository 
 
     @Override
     public Double getTaxRateByIso(String Iso) {
-        return taxRateProviderMap.get(Iso);
+        return taxRateProviderMap.get(Iso != null ? Iso.toUpperCase(): "");
     }
 }
