@@ -21,7 +21,6 @@ public class NetPriceCalculatorController {
         try {
            return new ResponseEntity<PriceDetails>(netPriceCalculatorService.computeNetPrice(grossPrice, countryIso), HttpStatus.OK);
         } catch(CountryIsoCodeNotFoundException exp) {
-            System.out.println("Iso code not found exception!!");
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Country ISO Not Found");
         }
     }
